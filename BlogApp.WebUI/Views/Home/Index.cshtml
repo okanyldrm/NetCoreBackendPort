@@ -1,27 +1,18 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "HomePage";
     Layout = "~/Views/Shared/_Layouts.cshtml";
 }
 
-<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/images/template/images/img_bg_1.jpg);">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-md-offset-0 text-center">
-                <div class="display-t">
-                    <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-                        <h1 class="mb30">Never Stop Exploring.</h1>
-                        <p>
-                            <a href="http://freehtml5.co/" target="_blank" class="btn btn-primary">Download</a> or
-                            <a href="https://vimeo.com/channels/staffpicks/93951774" class="link-watch popup-vimeo">Watch Video</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+
+
+@section banner{
+
+    <h1 class="mb30">Never Stop Exploring.</h1>
+        <p>
+            <a href="http://freehtml5.co/" target="_blank" class="btn btn-primary">Download CV</a>
+        </p>
+}
+
 
 <div id="fh5co-services" class="fh5co-bg-section">
     <div class="container">
@@ -136,8 +127,6 @@
 
 </div>
 
-
-
 <div id="fh5co-testimonial" class="fh5co-bg-section">
     <div class="container">
         <div class="row animate-box row-pb-md">
@@ -185,7 +174,6 @@
         </div>
     </div>
 </div>
-
 
 <div id="fh5co-counter">
     <div class="container">
@@ -293,3 +281,4 @@
         </div>
     </div>
 </div>
+

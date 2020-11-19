@@ -4,22 +4,10 @@
     Layout = "~/Views/Shared/_Layouts.cshtml";
 }
 
-<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(~/images/template/images//img_bg_1.jpg);">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-md-offset-0 text-center">
-                <div class="display-t">
-                    <div class="display-tc animate-box" data-animate-effect="fadeInUp">
-                        <h1 class="mb30">About Us</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+@section banner{
+    <h1 class="mb30">About Us</h1>
 
-
+}
 
 <div id="fh5co-about">
     <div class="container">
@@ -104,8 +92,6 @@
     </div>
 </div>
 
-
-
 <div id="fh5co-testimonial" class="fh5co-bg-section">
     <div class="container">
         <div class="row animate-box row-pb-md">
@@ -154,8 +140,6 @@
     </div>
 </div>
 
-
-
 <div id="fh5co-started">
     <div class="container">
         <div class="row animate-box">
@@ -169,6 +153,3 @@
     </div>
 </div>
 
-
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/js/about.js"></script>

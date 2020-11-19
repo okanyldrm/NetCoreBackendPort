@@ -19,11 +19,18 @@ namespace BlogApp.WebUI
 
         public IConfiguration Configuration { get; }
 
+
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //services.AddDbContext<PostgreSqlDbContext>(option=>option.UseNpgsql());
+
             services.AddRazorPages();
             services.AddMvc();
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
