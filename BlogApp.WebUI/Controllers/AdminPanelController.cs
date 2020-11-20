@@ -27,27 +27,32 @@ namespace BlogApp.WebUI.Controllers
 
         public IActionResult HomeIndex()
         {
-            return PartialView("FormElementDefault");
+            return PartialView("HomeForm");
         }
 
         public IActionResult ContactIndex()
         {
-            return View();
+            return PartialView("ContactForm");
         }
 
         public IActionResult ServicesIndex()
         {
-            return View();
+            return PartialView("ServicesForm");
         }
 
         public IActionResult WorkIndex()
         {
-            return View();
+            return PartialView("WorkForm");
         }
 
         public IActionResult AboutIndex()
         {
-            return View();
+            return PartialView("AboutForm");
+        }
+
+        public IActionResult EditBlog()
+        {
+            return PartialView("EditBlogForm");
         }
 
 
