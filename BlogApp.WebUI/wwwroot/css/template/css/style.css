@@ -133,10 +133,10 @@ h1, h2, h3, h4, h5, h6, figure {
   display: inline;
 }
 .fh5co-nav ul li a {
-  font-size: 20px;
+  font-size: 24px;
   padding: 30px 10px;
   text-transform: uppercase;
-  color: #e1c55a;
+  color: #2a9353;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -292,8 +292,7 @@ h1, h2, h3, h4, h5, h6, figure {
         left: 0;
         right: 0;
         background-image: url("https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
-       
-        filter: grayscale(100%) blur(5px);
+        filter:  blur(5px);
         ;
     }
 .fh5co-cover > .fh5co-container {
