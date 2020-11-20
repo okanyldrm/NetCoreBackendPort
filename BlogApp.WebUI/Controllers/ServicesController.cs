@@ -12,5 +12,31 @@ namespace BlogApp.WebUI.Controllers
         {
             return View();
         }
+
+
+        public IActionResult Backend()
+        {
+            return View();
+        }
+
+
+        public IActionResult Frontend()
+        {
+            return View();
+        }
+
+
+
+        public IActionResult Devops()
+        {
+            return View();
+        }
+
+
+        public IActionResult Database()
+        {
+            return View();
+        }
+
     }
 }

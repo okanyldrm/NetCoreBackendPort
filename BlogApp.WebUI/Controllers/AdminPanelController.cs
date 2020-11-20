@@ -20,5 +20,36 @@ namespace BlogApp.WebUI.Controllers
         }
 
 
+        public IActionResult BlogEkle()
+        {
+            return View();
+        }
+
+        public IActionResult HomeIndex()
+        {
+            return PartialView("FormElementDefault");
+        }
+
+        public IActionResult ContactIndex()
+        {
+            return View();
+        }
+
+        public IActionResult ServicesIndex()
+        {
+            return View();
+        }
+
+        public IActionResult WorkIndex()
+        {
+            return View();
+        }
+
+        public IActionResult AboutIndex()
+        {
+            return View();
+        }
+
+
     }
 }

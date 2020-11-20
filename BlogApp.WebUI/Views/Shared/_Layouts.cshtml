@@ -68,11 +68,26 @@
 <body>
 
     <div class="fh5co-loader"></div>
+    
 
+   
     <div id="page">
-
+       
         <!-- #region NAV  -->
         <nav class="fh5co-nav" role="navigation">
+            <div class="row">
+                <div class="col-md-10">
+
+                </div>
+                <div class="col-md-2">
+                    <a asp-controller="AdminPanel" asp-action="Index">
+                        <button class="btn btn-dark">ADMIN</button>
+                    </a>
+
+                </div>
+
+            </div>
+           
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 text-center">
@@ -84,10 +99,10 @@
                             <li class="has-dropdown">
                                 <a id="services" asp-controller="Services" asp-action="Index">Services</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Web Design</a></li>
-                                    <li><a href="#">eCommerce</a></li>
-                                    <li><a href="#">Branding</a></li>
-                                    <li><a href="#">API</a></li>
+                                    <li><a asp-controller="Services" asp-action="Backend">Backend Development</a></li>
+                                    <li><a asp-controller="Services" asp-action="Frontend">Frontend Development</a></li>
+                                    <li><a asp-controller="Services" asp-action="Devops">Dev-Ops</a></li>
+                                    <li><a asp-controller="Services" asp-action="Database">Database Management</a></li>
                                 </ul>
                             </li>
                             <li id="work"><a asp-controller="Work" asp-action="Index">Work</a></li>
@@ -103,7 +118,6 @@
 
 
         <!-- #endregion NAV  -->
-
         <!-- #region HEADER  -->
         <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(/images/template/images/img_bg_1.jpg);">
             <div class="overlay"></div>
