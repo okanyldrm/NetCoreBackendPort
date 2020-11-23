@@ -34,9 +34,9 @@ namespace BlogApp.WebUI
             services.AddRazorPages();
             services.AddMvc();
 
-            //PostgreSql
-            services.AddDbContext<BlogContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnectionString"), b=>b.MigrationsAssembly("BlogApp.DataAccess")));
-            services.AddScoped<DbContext>(provider => provider.GetService<BlogContext>());
+            //PostgreSql Default
+            //services.AddDbContext<BlogContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnectionString"), b=>b.MigrationsAssembly("BlogApp.DataAccess")));
+            //services.AddScoped<DbContext>(provider => provider.GetService<BlogContext>());
 
 
             

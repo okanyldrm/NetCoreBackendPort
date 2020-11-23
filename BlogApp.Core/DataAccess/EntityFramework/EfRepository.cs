@@ -8,8 +8,8 @@ using System.Text;
 
 namespace BlogApp.Core.DataAccess.EntityFramework
 {
-    public class EfRepository<TEntity, TContext> : IRepository<TEntity>
-        where TEntity : class, IEntity, new()
+    public class EfRepositoryBase<TEntity, TContext> : IRepository<TEntity>
+        where TEntity : class,  IEntity , new()
         where TContext : DbContext, new()
     {
         public void Add(TEntity entity)
