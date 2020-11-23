@@ -1,5 +1,7 @@
+using BlogApp.DataAccess.Concrete.EntitiyFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,10 +27,17 @@ namespace BlogApp.WebUI
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //services.AddDbContext<PostgreSqlDbContext>(option=>option.UseNpgsql());
+           //services.AddDbContext<PostgreSqlDbContext>(option=>option.UseNpgsql());
+
+
 
             services.AddRazorPages();
             services.AddMvc();
+
+            //PostgreSql
+            services.AddDbContext<BlogContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnectionString"), b=>b.MigrationsAssembly("BlogApp.DataAccess")));
+            services.AddScoped<DbContext>(provider => provider.GetService<BlogContext>());
+
 
             
         }
