@@ -1,4 +1,6 @@
-﻿@{
+﻿@model BlogApp.WebUI.Models.HomeIndexViewModel
+
+@{
     ViewData["Title"] = "HomePage";
     Layout = "~/Views/Shared/_Layouts.cshtml";
 }
@@ -7,11 +9,12 @@
 
 @section banner{
 
-    <h1 class="mb30">Never Stop Exploring.</h1>
+    <h1 class="mb30">@Model.BannerOdd.Title</h1>
     <p>
         <a href="http://freehtml5.co/" target="_blank" class="btn btn-primary">Download CV</a>
     </p>
 }
+
 
 
 <div id="fh5co-services" class="fh5co-bg-section">
@@ -20,8 +23,8 @@
             <div class="col-md-8 col-md-offset-2 text-center animate-box" data-animate-effect="fadeInUp">
                 <div class="fh5co-heading">
                     <span>We're expert</span>
-                    <h2>What I Do</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <h2>@Model.BannerOdd.Title2</h2>
+                    <p>@Model.BannerOdd.Title2Content</p>
                 </div>
             </div>
         </div>
@@ -79,8 +82,8 @@
         <div class="row row-pb-md">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading  animate-box">
                 <span>Want Some Cool Stuff</span>
-                <h2>Projects</h2>
-                <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                <h2>@Model.BannerOdd.Title3</h2>
+                <p>@Model.BannerOdd.Title3Content</p>
             </div>
         </div>
 
@@ -116,8 +119,8 @@
         <div class="row animate-box" data-animate-effect="fadeInUp">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                 <span>Enjoy it</span>
-                <h2>Fun Facts</h2>
-                <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                <h2>@Model.BannerOdd.Title4</h2>
+                <p>@Model.BannerOdd.Title4Content</p>
             </div>
         </div>
 

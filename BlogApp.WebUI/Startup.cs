@@ -1,3 +1,6 @@
+using BlogApp.Business.Abstract;
+using BlogApp.Business.Concrete;
+using BlogApp.DataAccess.Abstract;
 using BlogApp.DataAccess.Concrete.EntitiyFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,7 +42,13 @@ namespace BlogApp.WebUI
             //services.AddScoped<DbContext>(provider => provider.GetService<BlogContext>());
 
 
-            
+            //DI
+            services.AddSingleton<IBannerDal,EfBannerDal>();
+            services.AddSingleton<IBannerService, BannerManager>();
+
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
