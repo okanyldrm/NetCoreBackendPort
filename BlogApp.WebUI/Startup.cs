@@ -36,15 +36,18 @@ namespace BlogApp.WebUI
 
             services.AddRazorPages();
             services.AddMvc();
-
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             //PostgreSql Default
-            //services.AddDbContext<BlogContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnectionString"), b=>b.MigrationsAssembly("BlogApp.DataAccess")));
-            //services.AddScoped<DbContext>(provider => provider.GetService<BlogContext>());
+            services.AddDbContext<BlogContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnectionString"), b=>b.MigrationsAssembly("BlogApp.WebUI")));
+            services.AddScoped<DbContext>(provider => provider.GetService<BlogContext>());
 
 
             //DI
             services.AddSingleton<IBannerDal,EfBannerDal>();
             services.AddSingleton<IBannerService, BannerManager>();
+
+            services.AddSingleton<ICategoryDal, EfCategoryDal>();
+            services.AddSingleton<ICategoryService, CategoryManager>();
 
 
 

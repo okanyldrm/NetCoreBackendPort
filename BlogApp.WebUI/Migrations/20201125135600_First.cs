@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace BlogApp.DataAccess.Migrations
+namespace BlogApp.WebUI.Migrations
 {
-    public partial class AddedFirstMigration : Migration
+    public partial class First : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,12 +29,31 @@ namespace BlogApp.DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_Banners", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: true),
+                    TextTitle = table.Column<string>(type: "text", nullable: true),
+                    TextContent = table.Column<string>(type: "text", nullable: true),
+                    LanguageId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Banners");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace BlogApp.WebUI.Controllers
 {
 
-    [Route("api/[controller]")]
+   
     public class HomeController : Controller
     {
 
@@ -28,19 +28,18 @@ namespace BlogApp.WebUI.Controllers
         {
             var model = new HomeIndexViewModel()
             {
-                BannerOdd = _bannerService.Get(2)
+                BannerOdd = _bannerService.Get(1)
             };
-
             return View(model);
         }
 
 
 
-        //[HttpPost("addbanner")]
-        //public IActionResult Add([FromBody] Banner entity)
+        //[HttpPost]
+        //public IActionResult Add(Banner entity) 
         //{
         //    _bannerService.Add(entity);
-        //    return Json("Ekleme Başarili");
+        //    return RedirectToAction("Index");
         //}
 
 

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BlogApp.Business.Abstract;
+using BlogApp.WebUI.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,17 @@ namespace BlogApp.WebUI.Controllers
 {
     public class AdminPanelController : Controller
     {
+
+
+        private readonly IBannerService _bannerService;
+        private readonly ICategoryService _categoryService;
+
+        public AdminPanelController(IBannerService bannerService, ICategoryService categoryService)
+        {
+            _bannerService = bannerService;
+            _categoryService = categoryService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -27,7 +40,13 @@ namespace BlogApp.WebUI.Controllers
 
         public IActionResult HomeIndex()
         {
-            return PartialView("HomeForm");
+
+            var model = new BannerFormViewModel() {
+                banner = _bannerService.Get(1),
+                categories = _categoryService.GetList()
+            };
+
+            return PartialView("HomeForm",model);
         }
 
         public IActionResult ContactIndex()
