@@ -34,7 +34,6 @@ namespace BlogApp.WebUI.Controllers
         }
 
 
-
         //[HttpPost]
         //public IActionResult Add(Banner entity) 
         //{

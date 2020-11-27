@@ -8,10 +8,7 @@ namespace BlogApp.WebUI.Models
 {
     public class BannerFormViewModel
     {
-
-
         public Banner banner { get; set; }
-
         public List<Category> categories { get; set; }
     }
 }

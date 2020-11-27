@@ -8,11 +8,7 @@ namespace BlogApp.WebUI.Models
 {
     public class HomeIndexViewModel
     {
-
         public Banner BannerOdd { get; set; }
-
-
-
 
     }
 }

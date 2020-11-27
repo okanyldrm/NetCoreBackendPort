@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ComplexType\" />
+    <ProjectReference Include="..\BlogApp.Core\BlogApp.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlogApp.Core\BlogApp.Core.csproj" />
+    <Folder Include="ComplexType\" />
   </ItemGroup>
 
 </Project>

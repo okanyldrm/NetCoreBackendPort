@@ -1,5 +1,6 @@
 ﻿using BlogApp.Business.Abstract;
 using BlogApp.WebUI.Models;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,45 @@ namespace BlogApp.WebUI.Controllers
             _categoryService = categoryService;
         }
 
+        public IActionResult GeneralSetting()
+        {
+
+
+
+            return View("~/Views/AdminPanel/HomePageSetting/GeneralSetting.cshtml");
+        }
+
+
+
+        public IActionResult ProjectSetting()
+        {
+
+
+
+            return View("~/Views/AdminPanel/HomePageSetting/ProjectSetting.cshtml");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public IActionResult Index()
         {
             return View();
@@ -41,13 +81,30 @@ namespace BlogApp.WebUI.Controllers
         public IActionResult HomeIndex()
         {
 
-            var model = new BannerFormViewModel() {
+            var model = new BannerFormViewModel()
+            {
                 banner = _bannerService.Get(1),
                 categories = _categoryService.GetList()
             };
 
-            return PartialView("HomeForm",model);
+            return PartialView("HomeForm" , model );
         }
+
+
+
+
+
+        [HttpPost]
+        public IActionResult Update(Banner entity)
+        {
+            _bannerService.Update(entity);
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
 
         public IActionResult ContactIndex()
         {

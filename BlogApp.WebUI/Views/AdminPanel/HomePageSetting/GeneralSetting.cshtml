@@ -1,0 +1,141 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Views/Shared/_AdminLayouts.cshtml";
+}
+
+
+
+<!-- general form elements -->
+<div class="card card-warning">
+    <div class="card-header">
+        <h3 class="card-title">General Setting</h3>
+    </div>
+    <br />
+    <div class="container">
+    <div class="row">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+            <img src="~/images/Admin/Homepage/titles.png" alt="Alternate Text" />
+            <img src="~/images/Admin/Homepage/1234.png" alt="Alternate Text" />
+        </div>
+        <div class="col-sm">
+        </div>
+    </div>
+</div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <form asp-controller="AdminPanel" asp-action="Update" method="post">
+
+            @*firstPage setting*@
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input class="form-control" placeholder="Enter ...">
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Banner Text</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Title-2</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Title-2 Content</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Title-3</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Title-3 Content</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Title-4</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Title-4 Content</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>One</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Two</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Three</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                    <div class="form-group">
+                        <label>Four</label>
+                        <input type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-success mr-2 px-4">Update</button>
+
+        </form>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+
+
+
+
+
+
+
+
+

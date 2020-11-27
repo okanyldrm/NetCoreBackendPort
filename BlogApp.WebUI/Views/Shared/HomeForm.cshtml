@@ -1,9 +1,9 @@
 ﻿@model BlogApp.WebUI.Models.BannerFormViewModel
+
 @{
 
     Layout = "~/Views/Shared/_AdminLayouts.cshtml";
 }
-
 
 
 <!-- general form elements -->
@@ -13,7 +13,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <form asp-controller="Home" asp-action="Add" method="post">
+        <form asp-controller="AdminPanel" asp-action="Update" method="post">
 
             @*firstPage setting*@
             <div class="row">
@@ -21,7 +21,7 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Title</label>
-                        <input class="form-control" placeholder="Enter ..." value="@Model.banner.Title">
+                        <input class="form-control" placeholder="Enter ..."  asp-for="banner.Title">
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -35,13 +35,13 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>WhatWeDo Title Text</label>
-                        <input type="text" class="form-control" placeholder="Enter ..." value="@Model.banner.Title2">
+                        <input type="text" class="form-control" placeholder="Enter ..." >
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>WhatWeDo TextArea</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."> @Model.banner.Title2Content</textarea>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
                     </div>
                 </div>
             </div>
@@ -69,20 +69,20 @@
                                         </thead>
                                         <tbody>
 
-                                            @foreach (var item in Model.categories)
-                                            {
-                                                <tr>
-                                                    <td>1.</td>
-                                                    <td>@item.TextTitle</td>
-                                                    <td>
-                                                        <div class="progress progress-xs">
-                                                            <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                                        </div>
-                                                    </td>
-                                                    <td><span class="badge bg-danger">55%</span></td>
-                                                </tr>
+                                            @*@foreach (var item in Model.categories)
+                                                {
+                                                    <tr>
+                                                        <td>1.</td>
+                                                        <td>@item.TextTitle</td>
+                                                        <td>
+                                                            <div class="progress progress-xs">
+                                                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                            </div>
+                                                        </td>
+                                                        <td><span class="badge bg-danger">55%</span></td>
+                                                    </tr>
 
-                                            }
+                                                }*@
                                             @*<tr>
                                                     <td>1.</td>
                                                     <td>Update software</td>
@@ -287,7 +287,7 @@
                 <input type="text" class="form-control is-valid" id="inputSuccess" placeholder="Enter ...">
             </div>
 
-            <button type="submit" class="btn btn-dark mr-2 px-4">Submit</button>
+            <button type="submit" class="btn btn-dark mr-2 px-4">Update</button>
 
         </form>
     </div>
