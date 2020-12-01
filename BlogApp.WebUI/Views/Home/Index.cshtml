@@ -87,7 +87,15 @@
             </div>
         </div>
 
-        <div class="row">
+
+
+
+        @foreach (var item in Model.Projects)
+        {
+           <h5>@item.Title</h5>
+        }
+
+        @*<div class="row">
             <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
                 <a href="#">
                     <img style=" max-width: 100%; height: auto;" src="https://images.unsplash.com/photo-1430285561322-7808604715df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
@@ -108,7 +116,7 @@
             </div>
 
 
-        </div>
+        </div>*@
     </div>
 
 </div>

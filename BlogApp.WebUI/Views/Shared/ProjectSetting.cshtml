@@ -1,0 +1,49 @@
+﻿
+@model Entities.Concrete.Project
+
+@{
+
+    Layout = "~/Views/Shared/_AdminLayouts.cshtml";
+
+}
+
+@*<h5>@Model.Id</h5>
+<h5>@Model.Title</h5>
+<h5>@Model.Image</h5>*@
+
+
+
+<!-- general form elements -->
+<div class="card card-danger">
+    <div class="card-header">
+        <h3 class="card-title">Project Detail |  <i> @Model.Title</i>   </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <form role="form" asp-controller="AdminPanel" asp-action="UpdateProject" method="post">
+
+            @*firstPage setting*@
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input asp-for="Title" type="text" class="form-control" placeholder="Enter ...">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea asp-for="Content" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-success mr-2 px-4">Update</button>
+
+        </form>
+    </div>
+    <!-- /.card-body -->
+</div>
+

@@ -49,6 +49,9 @@ namespace BlogApp.WebUI
             services.AddSingleton<ICategoryDal, EfCategoryDal>();
             services.AddSingleton<ICategoryService, CategoryManager>();
 
+            services.AddSingleton<IProjectDal, EfProjectDal>();
+            services.AddSingleton<IProjectService, ProjectManager>();
+
 
 
 

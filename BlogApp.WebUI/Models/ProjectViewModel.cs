@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace BlogApp.WebUI.Models
 {
-    public class HomeIndexViewModel
+    public class ProjectViewModel
     {
-        public Banner BannerOdd { get; set; }
+
         public List<Project> Projects { get; set; }
+
 
     }
 }

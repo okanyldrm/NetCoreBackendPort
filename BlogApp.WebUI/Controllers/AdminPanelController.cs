@@ -15,11 +15,13 @@ namespace BlogApp.WebUI.Controllers
 
         private readonly IBannerService _bannerService;
         private readonly ICategoryService _categoryService;
+        private readonly IProjectService _projectService;
 
-        public AdminPanelController(IBannerService bannerService, ICategoryService categoryService)
+        public AdminPanelController(IBannerService bannerService, ICategoryService categoryService, IProjectService projectService)
         {
             _bannerService = bannerService;
             _categoryService = categoryService;
+            _projectService = projectService;
         }
 
         public IActionResult GeneralSetting()
@@ -44,12 +46,30 @@ namespace BlogApp.WebUI.Controllers
         public IActionResult ProjectSetting()
         {
 
+            var model = new ProjectViewModel()
+            {
+                Projects = _projectService.GetList()
+            };
 
-
-            return View("~/Views/AdminPanel/HomePageSetting/ProjectSetting.cshtml");
+            return View("~/Views/AdminPanel/HomePageSetting/ProjectSetting.cshtml",model);
         }
 
 
+        [HttpGet("AdminPanel/ProjectSetting/{id}")]
+        public IActionResult ProjectSettingId(int id)
+        {
+            var model = _projectService.Get(id);
+
+            return View("~/Views/Shared/ProjectSetting.cshtml",model);
+        }
+
+
+        [HttpPost]
+        public IActionResult UpdateProject(Project entity)
+        {
+            _projectService.Update(entity);
+            return RedirectToAction("ProjectSetting");
+        }
 
 
 

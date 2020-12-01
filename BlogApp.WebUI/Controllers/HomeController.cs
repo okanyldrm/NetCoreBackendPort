@@ -16,10 +16,12 @@ namespace BlogApp.WebUI.Controllers
 
 
         private readonly IBannerService _bannerService;
+        private readonly IProjectService _projectService;
 
-        public HomeController(IBannerService bannerService)
+        public HomeController(IBannerService bannerService, IProjectService projectService)
         {
             _bannerService = bannerService;
+            _projectService = projectService;
         }
 
 
@@ -28,7 +30,8 @@ namespace BlogApp.WebUI.Controllers
         {
             var model = new HomeIndexViewModel()
             {
-                BannerOdd = _bannerService.Get(1)
+                BannerOdd = _bannerService.Get(1),
+                Projects = _projectService.GetList()
             };
             return View(model);
         }
