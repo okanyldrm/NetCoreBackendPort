@@ -1,4 +1,4 @@
-﻿
+﻿@model Entities.Concrete.Banner
 @{
     ViewData["Title"] = "View";
     Layout = "~/Views/Shared/_AdminLayouts.cshtml";
@@ -34,7 +34,7 @@
                     <!-- text input -->
                     <div class="form-group">
                         <label>Title</label>
-                        <input class="form-control" placeholder="Enter ...">
+                        <input asp-for="Title" class="form-control" placeholder="Enter ...">
                     </div>
 
 
@@ -42,29 +42,29 @@
 
 
                 <div class="col-sm-6">
-                    <div class="form-group">
-                        <label>Banner Text</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
-                    </div>
+                    @*<div class="form-group">
+                    <label>Banner Text</label>
+                    <input type="text" class="form-control" placeholder="Enter ...">
+                </div>*@
 
                 </div>
             </div>
 
 
-
+            <input type="hidden" asp-for="Id" />
 
 
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Title-2</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input asp-for="Title2" type="text" class="form-control" placeholder="Enter ...">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Title-2 Content</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea asp-for="Title2Content" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                     </div>
                 </div>
             </div>
@@ -73,13 +73,13 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Title-3</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input asp-for="Title3" type="text" class="form-control" placeholder="Enter ...">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Title-3 Content</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea asp-for="Title3Content" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                     </div>
                 </div>
             </div>
@@ -88,13 +88,13 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Title-4</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input asp-for="Title4" type="text" class="form-control" placeholder="Enter ...">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Title-4 Content</label>
-                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                        <textarea asp-for="Title4Content" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                     </div>
                 </div>
             </div>
@@ -103,21 +103,21 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>One</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input asp-for="One" type="text" class="form-control" placeholder="Enter ...">
                     </div>
                     <div class="form-group">
                         <label>Two</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input asp-for="Two" type="text" class="form-control" placeholder="Enter ...">
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label>Three</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input asp-for="Three" type="text" class="form-control" placeholder="Enter ...">
                     </div>
                     <div class="form-group">
                         <label>Four</label>
-                        <input type="text" class="form-control" placeholder="Enter ...">
+                        <input asp-for="Four" type="text" class="form-control" placeholder="Enter ...">
                     </div>
                 </div>
             </div>

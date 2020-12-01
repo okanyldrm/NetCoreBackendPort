@@ -31,6 +31,8 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
 
         public DbSet<Language> Languages { get; set; }
 
+        public DbSet<Project> Projects { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -24,10 +24,19 @@ namespace BlogApp.WebUI.Controllers
 
         public IActionResult GeneralSetting()
         {
+            var model = _bannerService.Get(1);
 
 
+            return View("~/Views/AdminPanel/HomePageSetting/GeneralSetting.cshtml",model);
+        }
 
-            return View("~/Views/AdminPanel/HomePageSetting/GeneralSetting.cshtml");
+        public IActionResult Update(Banner entity)
+        {
+           
+            _bannerService.Update(entity);
+
+
+            return RedirectToAction("GeneralSetting");
         }
 
 
@@ -92,14 +101,6 @@ namespace BlogApp.WebUI.Controllers
 
 
 
-
-
-        [HttpPost]
-        public IActionResult Update(Banner entity)
-        {
-            _bannerService.Update(entity);
-            return RedirectToAction("Index");
-        }
 
 
 
