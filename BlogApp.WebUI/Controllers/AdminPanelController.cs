@@ -71,6 +71,12 @@ namespace BlogApp.WebUI.Controllers
             return RedirectToAction("ProjectSetting");
         }
 
+        [HttpDelete]
+        public IActionResult DeleteProject(Project entity)
+        {
+            _projectService.Delete(entity);
+            return RedirectToAction("ProjectSetting");
+        }
 
 
 

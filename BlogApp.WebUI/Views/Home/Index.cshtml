@@ -90,33 +90,35 @@
 
 
 
-        @foreach (var item in Model.Projects)
-        {
-           <h5>@item.Title</h5>
-        }
+  
 
-        @*<div class="row">
+        <div class="row">
+            @foreach (var item in Model.Projects)
+            {
+    
             <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                <a href="#">
-                    <img style=" max-width: 100%; height: auto;" src="https://images.unsplash.com/photo-1430285561322-7808604715df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-                    <h3>Emlak App Backend/Frondend</h3>
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                <a href="#">
-                    <img style="max-width: 100%; height: auto;" src="https://www.limasollunaci.com/ckfinder/userfiles/images/blog/blog.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-                    <h3>Blog App</h3>
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
-                <a href="#">
-                    <img style="max-width: 100%;height: auto;" src="https://www.somagnews.com/wp-content/uploads/2020/04/75-e1586981465263.png" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
-                    <h3>GitHub Repositories</h3>
+                <a asp-controller="home" asp-action="project" asp-route-id="@item.Id">
+                    <img style=" max-width: 100%; height: auto;" src="~/images/Home/@item.Image" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+                    <h3>@item.Title</h3>
                 </a>
             </div>
 
-
+            }
+            @*<div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
+            <a href="#">
+                <img style="max-width: 100%; height: auto;" src="https://www.limasollunaci.com/ckfinder/userfiles/images/blog/blog.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+                <h3>Blog App</h3>
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-6 fh5co-project animate-box" data-animate-effect="fadeIn">
+            <a href="#">
+                <img style="max-width: 100%;height: auto;" src="https://www.somagnews.com/wp-content/uploads/2020/04/75-e1586981465263.png" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+                <h3>GitHub Repositories</h3>
+            </a>
         </div>*@
+
+
+        </div>
     </div>
 
 </div>
@@ -139,7 +141,7 @@
                     <span class="icon">
                         <i class="ti-download"></i>
                     </span>
-                    <span class="counter"><span class="js-counter" data-from="0" data-to="15" data-speed="1500" data-refresh-interval="50">1</span>M+</span>
+                    <span class="counter"><span class="js-counter" data-from="0" data-to="@Model.BannerOdd.One" data-speed="1500" data-refresh-interval="50">1</span>M+</span>
                     <span class="counter-label">Downloads</span>
 
                 </div>
@@ -149,7 +151,7 @@
                     <span class="icon">
                         <i class="ti-face-smile"></i>
                     </span>
-                    <span class="counter"><span class="js-counter" data-from="0" data-to="2" data-speed="1500" data-refresh-interval="50">1</span>K+</span>
+                    <span class="counter"><span class="js-counter" data-from="0" data-to="@Model.BannerOdd.Two" data-speed="1500" data-refresh-interval="50">1</span>K+</span>
                     <span class="counter-label">Happy Clients</span>
                 </div>
             </div>
@@ -158,7 +160,7 @@
                     <span class="icon">
                         <i class="ti-briefcase"></i>
                     </span>
-                    <span class="counter"><span class=" js-counter" data-from="0" data-to="6" data-speed="1500" data-refresh-interval="50">1</span>K+</span>
+                    <span class="counter"><span class=" js-counter" data-from="0" data-to="@Model.BannerOdd.Three" data-speed="1500" data-refresh-interval="50">1</span>K+</span>
                     <span class="counter-label">Projects Done</span>
                 </div>
             </div>
@@ -167,7 +169,7 @@
                     <span class="icon">
                         <i class="ti-time"></i>
                     </span>
-                    <span class="counter"><span class="js-counter" data-from="0" data-to="7" data-speed="1500" data-refresh-interval="50">1</span>K+</span>
+                    <span class="counter"><span class="js-counter" data-from="0" data-to="@Model.BannerOdd.Four" data-speed="1500" data-refresh-interval="50">1</span>K+</span>
                     <span class="counter-label">Hours Spent</span>
 
                 </div>

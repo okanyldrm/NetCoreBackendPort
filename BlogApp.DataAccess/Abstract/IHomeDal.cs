@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BlogApp.DataAccess.Abstract
 {
-    public interface IProjectDal : IRepository<Project>
+   public interface IHomeDal : IRepository<HomePage>
     {
     }
 }

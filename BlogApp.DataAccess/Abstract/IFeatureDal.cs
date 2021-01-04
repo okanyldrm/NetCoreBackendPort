@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BlogApp.DataAccess.Abstract
 {
-    public interface ICategoryDal : IRepository<Category>
+    public interface IFeatureDal : IRepository<Feature>
     {
     }
 }

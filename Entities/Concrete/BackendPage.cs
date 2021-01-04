@@ -5,11 +5,12 @@ using System.Text;
 
 namespace Entities.Concrete
 {
-   public class Technique :IEntity
+    public class BackendPage : IEntity
     {
+
         public int Id { get; set; }
         public string Title { get; set; }
+        public string MiniTitle { get; set; }
         public string Content { get; set; }
-
     }
 }

@@ -6,9 +6,7 @@ using System.Text;
 
 namespace BlogApp.DataAccess.Abstract
 {
-    public interface IBannerDal : IRepository<Banner>
+    public interface IBackendPageDal : IRepository<BackendPage>
     {
-        //EfRepository dışı isteklerin abstracları
-
     }
 }

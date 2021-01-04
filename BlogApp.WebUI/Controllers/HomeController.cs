@@ -45,6 +45,15 @@ namespace BlogApp.WebUI.Controllers
         //}
 
 
+        [HttpGet("Home/Project/{id}")]
+        public IActionResult ProjectPage(int id)
+        {
+
+            var model = _projectService.Get(id);
+
+
+            return View("~/Views/Home/ProjectPage.cshtml",model);
+        }
 
 
 

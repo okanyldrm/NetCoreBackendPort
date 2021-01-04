@@ -3,11 +3,13 @@ using BlogApp.DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace BlogApp.DataAccess.Concrete.EntitiyFramework
 {
-    public class EfProjectDal : EfRepositoryBase<Project,BlogContext> , IProjectDal
+    public class EfHomeDal : EfRepositoryBase<HomePage, BlogContext>, IHomeDal
     {
+      
     }
 }

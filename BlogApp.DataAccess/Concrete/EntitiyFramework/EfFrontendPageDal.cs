@@ -7,8 +7,7 @@ using System.Text;
 
 namespace BlogApp.DataAccess.Concrete.EntitiyFramework
 {
-    public class EfBannerDal : EfRepositoryBase<Banner, BlogContext> , IBannerDal
+    public class EfFrontendPageDal : EfRepositoryBase<FrontendPage, BlogContext>, IFrontendPageDal
     {
-
     }
 }

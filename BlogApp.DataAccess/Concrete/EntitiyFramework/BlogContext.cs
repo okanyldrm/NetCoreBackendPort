@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace BlogApp.DataAccess.Concrete.EntitiyFramework
 {
    public class BlogContext : DbContext
@@ -25,13 +26,12 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
             optionsBuilder.UseNpgsql("Server=localhost; Port=5433; Database=myDataBase; User Id=postgres; Password=1234; Integrated Security=true;Pooling=true;");
         }
 
-        public DbSet<Banner> Banners { get; set; }
+        public DbSet<HomePage> HomePages { get; set; }
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<BackendPage> BackendPages { get; set; }
+        public DbSet<Backend> Backends { get; set; }
+        public DbSet<FrontendPage> FrontendPages { get; set; }
 
-        public DbSet<Category> Categories { get; set; }
-
-        public DbSet<Language> Languages { get; set; }
-
-        public DbSet<Project> Projects { get; set; }
 
 
 
