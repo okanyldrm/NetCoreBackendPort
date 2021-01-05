@@ -44,6 +44,8 @@ namespace BlogApp.API
             services.AddSingleton<IBackendService, BackendManager>();
             services.AddSingleton<IFrontendPageDal, EfFrontendPageDal>();
             services.AddSingleton<IFrontendPageService, FrontendPageManager>();
+            services.AddSingleton<IFrontendDal, EfFrontendDal>();
+            services.AddSingleton<IFrontendService, FrontendManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
