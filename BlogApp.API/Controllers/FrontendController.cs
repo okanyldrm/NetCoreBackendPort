@@ -29,7 +29,7 @@ namespace BlogApp.API.Controllers
             return Json(model);
         }
 
-        [HttpGet("getbyidfrontend")]
+        [HttpGet("getbyidfrontend/{id}")]
         public IActionResult GetByIdFrontend(int id)
         {
             var model = _frontendService.Get(id);
