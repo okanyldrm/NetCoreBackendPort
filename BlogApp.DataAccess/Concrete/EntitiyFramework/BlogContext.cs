@@ -33,6 +33,7 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
         public DbSet<FrontendPage> FrontendPages { get; set; }
         public DbSet<Frontend> Frontends { get; set; }
         public DbSet<DatabasePage> DatabasePages { get; set; }
+        public DbSet<Database> Databases { get; set; }
 
 
 
