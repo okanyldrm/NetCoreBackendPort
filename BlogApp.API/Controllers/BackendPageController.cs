@@ -16,10 +16,12 @@ namespace BlogApp.API.Controllers
 
 
         private readonly IBackendPageService _backendPageService;
+      
 
         public BackendPageController(IBackendPageService backendPageService)
         {
             _backendPageService = backendPageService;
+            
         }
 
         //api/BackendPage/backendpage

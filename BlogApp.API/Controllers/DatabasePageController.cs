@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogApp.Business.Abstract;
+using Entities.Concrete;
 
 namespace BlogApp.API.Controllers
 {
@@ -27,6 +28,11 @@ namespace BlogApp.API.Controllers
             return Json(model);
         }
 
-
+        [HttpPost("updatedatabasepage")]
+        public IActionResult UpdateDatabasePage([FromBody] DatabasePage entity)
+        {
+            _databasePageService.Update(entity);
+            return Ok();
+        }
     }
 }
