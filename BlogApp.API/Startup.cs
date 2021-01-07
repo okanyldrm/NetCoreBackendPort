@@ -50,6 +50,8 @@ namespace BlogApp.API
             services.AddSingleton<IDatabasePageService, DatabasePageManager>();
             services.AddSingleton<IDatabaseDal, EfDatabaseDal>();
             services.AddSingleton<IDatabaseService, DatabaseManager>();
+            services.AddSingleton<IDevopsPageDal, EfDevopsPageDal>();
+            services.AddSingleton<IDevopsPageService, DevopsPageManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
