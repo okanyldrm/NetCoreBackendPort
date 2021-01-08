@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BlogApp.Business.Abstract;
+using Entities.Concrete;
 
 namespace BlogApp.API.Controllers
 {
@@ -20,11 +21,26 @@ namespace BlogApp.API.Controllers
             _devopsService = devopsService;
         }
 
-        [HttpGet("getlalldevops")]
+        [HttpGet("getalldevops")]
         public IActionResult GetAllDevops()
         {
             var model = _devopsService.GetList();
             return Json(model);
+        }
+
+        [HttpGet("getbyiddevops/{id}")]
+        public IActionResult GetByIdDevops(int id)
+        {
+            var model = _devopsService.Get(id);
+            return Json(model);
+        }
+
+
+        [HttpPost("updatedevops")]
+        public IActionResult UpdateDevops([FromBody] Devops entity)
+        {
+            _devopsService.Update(entity);
+            return Ok();
         }
 
 
