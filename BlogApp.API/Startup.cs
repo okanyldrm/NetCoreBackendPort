@@ -56,6 +56,8 @@ namespace BlogApp.API
             services.AddSingleton<IDevopsDal, EfDevopsDal>();
             services.AddSingleton<IWorkPageService, WorkPageManager>();
             services.AddSingleton<IWorkPageDal, EfWorkPageDal>();
+            services.AddSingleton<IWorkService, WorkManager>();
+            services.AddSingleton<IWorkDal, EfWorkDal>();
 
         }
 
