@@ -35,7 +35,7 @@ namespace BlogApp.API.Controllers
             return Ok();
         }
 
-        [HttpGet("getbyidwork")]
+        [HttpGet("getbyidwork/{id}")]
         public IActionResult GetByIdWork(int id)
         {
             var model = _workService.Get(id);

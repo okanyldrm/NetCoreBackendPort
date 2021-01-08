@@ -58,6 +58,8 @@ namespace BlogApp.API
             services.AddSingleton<IWorkPageDal, EfWorkPageDal>();
             services.AddSingleton<IWorkService, WorkManager>();
             services.AddSingleton<IWorkDal, EfWorkDal>();
+            services.AddSingleton<IAboutPageService, AboutPageManager>();
+            services.AddSingleton<IAboutPageDal, EfAboutPageDal>();
 
         }
 
