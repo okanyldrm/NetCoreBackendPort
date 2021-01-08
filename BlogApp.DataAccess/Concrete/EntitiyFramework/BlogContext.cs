@@ -35,6 +35,7 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
         public DbSet<DatabasePage> DatabasePages { get; set; }
         public DbSet<Database> Databases { get; set; }
         public DbSet<DevopsPage> DevopsPages { get; set; }
+        public DbSet<Devops> Devopses { get; set; }
 
 
 

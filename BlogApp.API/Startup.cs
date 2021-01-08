@@ -52,6 +52,9 @@ namespace BlogApp.API
             services.AddSingleton<IDatabaseService, DatabaseManager>();
             services.AddSingleton<IDevopsPageDal, EfDevopsPageDal>();
             services.AddSingleton<IDevopsPageService, DevopsPageManager>();
+            services.AddSingleton<IDevopsService, DevopsManager>();
+            services.AddSingleton<IDevopsDal, EfDevopsDal>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +69,9 @@ namespace BlogApp.API
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader());
+
+
+
 
             app.UseRouting();
 
