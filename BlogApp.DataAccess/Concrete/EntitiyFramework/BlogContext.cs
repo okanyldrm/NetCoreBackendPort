@@ -39,6 +39,7 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
         public DbSet<WorkPage> WorkPages { get; set; }
         public DbSet<Work> Works { get; set; }
         public DbSet<AboutPage> AboutPages { get; set; }
+        public DbSet<BlogPage> BlogPages { get; set; }
 
 
 
