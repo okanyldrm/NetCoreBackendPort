@@ -62,6 +62,8 @@ namespace BlogApp.API
             services.AddSingleton<IAboutPageDal, EfAboutPageDal>();
             services.AddSingleton<IBlogPageService, BlogPageManager>();
             services.AddSingleton<IBlogPageDal, EfBlogPageDal>();
+            services.AddSingleton<IBlogService, BlogManager>();
+            services.AddSingleton<IBlogDal, EfBlogDal>();
 
         }
 
