@@ -47,6 +47,23 @@ namespace BlogApp.API.Controllers
             return Ok();
         }
 
+        [HttpPost("addbackend")]
+        public IActionResult AddBackend([FromBody] Backend entity)
+        {
+
+            _backendService.Add(entity);
+            return Ok();
+
+        }
+
+        [HttpDelete("deletebackend/{id}")]
+        public IActionResult DeleteBackend(int id)
+        {
+            var deletedEntity = _backendService.Get(id);
+            _backendService.Delete(deletedEntity);
+            return Ok();
+        }
+
 
     }
 }

@@ -46,11 +46,17 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
 
 
 
-
+        //Fluent API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //Fluent API
+            modelBuilder.Entity<Feature>()
+                .Property(p => p.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Backend>()
+                .Property(b => b.Id)
+                .ValueGeneratedOnAdd();
         }
+
 
 
 

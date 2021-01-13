@@ -47,5 +47,21 @@ namespace BlogApp.API.Controllers
             _featureService.Update(entity);
             return Ok();
         }
+
+        [HttpPost("addfeature")]
+        public IActionResult AddFeature([FromBody] Feature entity)
+        {
+            _featureService.Add(entity);
+            return Ok();
+        }
+
+        [HttpDelete("deletefeature/{id}")]
+        public IActionResult DeleteFeature(int id)
+        {
+            var deletemodel = _featureService.Get(id);
+            _featureService.Delete(deletemodel);
+            return Ok();
+        }
+
     }
 }
