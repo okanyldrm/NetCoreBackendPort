@@ -43,6 +43,22 @@ namespace BlogApp.API.Controllers
             return Ok();
         }
 
+        [HttpPost("addfrontend")]
+        public IActionResult AddFrontend([FromBody] Frontend entity)
+        {
+            _frontendService.Add(entity);
+            return Ok();
+
+        }
+
+        [HttpDelete("deletefrontend/{id}")]
+        public IActionResult DeleteFrontend(int id)
+        {
+            var deleteFrontend = _frontendService.Get(id);
+            _frontendService.Delete(deleteFrontend);
+            return Ok();
+        }
+
 
 
 

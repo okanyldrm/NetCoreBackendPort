@@ -55,6 +55,9 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
             modelBuilder.Entity<Backend>()
                 .Property(b => b.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Frontend>()
+                .Property(f => f.Id)
+                .ValueGeneratedOnAdd();
         }
 
 
