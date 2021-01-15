@@ -42,5 +42,22 @@ namespace BlogApp.API.Controllers
             return Json(model);
         }
 
+        [HttpPost("addwork")]
+        public IActionResult AddWork([FromBody] Work entity)
+        {
+
+            _workService.Add(entity);
+            return Ok();
+
+        }
+
+        [HttpDelete("deletework/{id}")]
+        public IActionResult DeleteWork(int id)
+        {
+            var deletedmodel = _workService.Get(id);
+            _workService.Delete(deletedmodel);
+            return Ok();
+        }
+
     }
 }
