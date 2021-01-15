@@ -45,5 +45,20 @@ namespace BlogApp.API.Controllers
             return Ok();
         }
 
+        [HttpPost("adddatabase")]
+        public IActionResult AddDatabase([FromBody] Database entity)
+        {
+            _databaseService.Add(entity);
+            return Ok();
+        }
+
+        [HttpDelete("deletedatabase/{id}")]
+        public IActionResult DeleteDatabase(int id)
+        {
+            var deletedDatabase = _databaseService.Get(id);
+            _databaseService.Delete(deletedDatabase);
+            return Ok();
+        }
+
     }
 }
