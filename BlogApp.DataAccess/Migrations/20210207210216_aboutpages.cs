@@ -3,7 +3,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BlogApp.DataAccess.Migrations
 {
-    public partial class aboutpage : Migration
+    public partial class aboutpages : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,14 +11,14 @@ namespace BlogApp.DataAccess.Migrations
                 name: "AboutPages",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "integer", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Title = table.Column<string>(type: "text", nullable: true),
-                    MiniTitle = table.Column<string>(type: "text", nullable: true),
-                    Content = table.Column<string>(type: "text", nullable: true),
-                    Title2 = table.Column<string>(type: "text", nullable: true),
-                    Content2 = table.Column<string>(type: "text", nullable: true),
-                    ImageUrl = table.Column<string>(type: "text", nullable: true)
+                    Title = table.Column<string>(nullable: true),
+                    MiniTitle = table.Column<string>(nullable: true),
+                    Content = table.Column<string>(nullable: true),
+                    Title2 = table.Column<string>(nullable: true),
+                    Content2 = table.Column<string>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

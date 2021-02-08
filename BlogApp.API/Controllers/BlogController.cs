@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using BlogApp.Business.Abstract;
 using Entities.Concrete;
+using Microsoft.Extensions.Logging;
 
 namespace BlogApp.API.Controllers
 {
@@ -15,10 +16,12 @@ namespace BlogApp.API.Controllers
     {
 
         private readonly IBlogService _blogService;
+        private readonly ILogger<BlogController> _logger;
 
-        public BlogController(IBlogService blogService)
+        public BlogController(IBlogService blogService, ILogger<BlogController> logger)
         {
             _blogService = blogService;
+            _logger = logger;
         }
 
         [HttpGet("getallblog")]
@@ -41,5 +44,23 @@ namespace BlogApp.API.Controllers
             _blogService.Update(entity);
             return Ok();
         }
+
+        [HttpPost("blogadd")]
+        public IActionResult AddBlog([FromBody] Blog entity)
+        {
+            _blogService.Add(entity);
+            _logger.LogInformation("Added | "+entity.Title);
+            return Ok();
+        }
+
+        [HttpDelete("blogdelete/{id}")]
+        public IActionResult DeleteBlog(int id)
+        {
+            var deleteModel = _blogService.Get(id);
+            _blogService.Delete(deleteModel);
+            _logger.LogWarning("Deleted |"+deleteModel.Title);
+            return Ok();
+        }
+
     }
 }

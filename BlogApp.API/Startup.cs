@@ -13,6 +13,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using BlogApp.API.Dependency;
+using BlogApp.DataAccess.Authentication;
+using Microsoft.EntityFrameworkCore;
+using Entities.Concrete;
+using Microsoft.AspNetCore.Identity;
+
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BlogApp.API
 {
@@ -32,7 +42,46 @@ namespace BlogApp.API
             services.AddCors();
 
             services.AddControllers();
-           
+
+            services.AddControllers().AddNewtonsoftJson();
+
+
+            //Entity Framework
+            services.AddDbContext<ApplicationDbContext>(option =>
+                option.UseNpgsql(Configuration.GetConnectionString("ConStr")));
+
+
+            //For Identity
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            //Adding Authentication
+            services.AddAuthentication(option =>
+                {
+                    option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    option.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                //Adding Jwt Bearer
+
+                .AddJwtBearer(option =>
+                {
+                    option.SaveToken = true;
+                    option.RequireHttpsMetadata = false;
+                    option.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = false,
+                        ValidAudience = Configuration["JWT:ValidAudience"],
+                        ValidIssuer = Configuration["JWT:ValidIssuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+                    };
+                });
+
+
+
+
             //injections
             services.AddSingleton<IHomeDal, EfHomeDal>();
             services.AddSingleton<IHomeService, HomePageManager>();
@@ -64,8 +113,17 @@ namespace BlogApp.API
             services.AddSingleton<IBlogPageDal, EfBlogPageDal>();
             services.AddSingleton<IBlogService, BlogManager>();
             services.AddSingleton<IBlogDal, EfBlogDal>();
+            services.AddSingleton<IEventDal, EfEventDal>();
+            //services.AddSingleton<IEventService, EventManager>();
+            services.AddOptions();
 
         }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new DependencyRegister());
+        }
+        
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -74,6 +132,8 @@ namespace BlogApp.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+
             //cors
             app.UseCors(builder => builder
                 .AllowAnyOrigin()
@@ -84,9 +144,9 @@ namespace BlogApp.API
 
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

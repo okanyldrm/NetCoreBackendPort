@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace BlogApp.API.Controllers
 {
@@ -15,11 +16,12 @@ namespace BlogApp.API.Controllers
     public class BackendController : Controller
     {
         private readonly IBackendService _backendService;
-       
+        private readonly ILogger<BackendController> _logger;
 
-        public BackendController(IBackendService backendService)
+        public BackendController(IBackendService backendService, ILogger<BackendController> logger)
         {
             _backendService = backendService;
+            _logger = logger;
         }
 
         [HttpGet("getallbackend")]
@@ -44,13 +46,14 @@ namespace BlogApp.API.Controllers
         public IActionResult Updatebackend([FromBody] Backend entity )
         {
             _backendService.Update(entity);
+            _logger.LogInformation(" Update Backend : "+entity.Title );
             return Ok();
         }
 
         [HttpPost("addbackend")]
         public IActionResult AddBackend([FromBody] Backend entity)
         {
-
+            _logger.LogInformation(" Added Backend : " + entity.Title);
             _backendService.Add(entity);
             return Ok();
 
@@ -59,7 +62,9 @@ namespace BlogApp.API.Controllers
         [HttpDelete("deletebackend/{id}")]
         public IActionResult DeleteBackend(int id)
         {
+            
             var deletedEntity = _backendService.Get(id);
+            _logger.LogWarning(" Delete Backend : " + deletedEntity.Title);
             _backendService.Delete(deletedEntity);
             return Ok();
         }

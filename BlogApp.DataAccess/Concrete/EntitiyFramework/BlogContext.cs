@@ -2,29 +2,52 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Text;
-
+using BlogApp.DataAccess.Concrete.EntitiyFramework.CodeFirstMapping;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BlogApp.DataAccess.Concrete.EntitiyFramework
 {
-   public class BlogContext : DbContext
+   public class BlogContext :  DbContext 
     {
 
-        //Need Empty Consructor 
-        public BlogContext() 
+        private readonly IConfiguration _configuration;
+
+        ////Need Empty Consructor 
+        public BlogContext()
         {
+
         }
 
-        public BlogContext(DbContextOptions<BlogContext> options) : base(options)
+        public BlogContext(IConfiguration configuration)
         {
+            _configuration = configuration;
+        }
+
+
+
+
+        public BlogContext(DbContextOptions<BlogContext> options, IConfiguration configuration) : base(options)
+        {
+            _configuration = configuration;
         }
 
         //----OLD----
         //Connection-String (N-Tier Connection non-parameter ctor please :D ^ )
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Server=localhost; Port=5433; Database=myDataBase; User Id=postgres; Password=1234; Integrated Security=true;Pooling=true;");
+
+            
+           
         }
+
+
+
+
+
+
 
         public DbSet<HomePage> HomePages { get; set; }
         public DbSet<Feature> Features { get; set; }
@@ -41,6 +64,12 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
         public DbSet<AboutPage> AboutPages { get; set; }
         public DbSet<BlogPage> BlogPages { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<EventCategory> EventCategories { get; set; }
+       
+     
+
+
 
 
 
@@ -49,6 +78,8 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
         //Fluent API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+           
+
             modelBuilder.Entity<Feature>()
                 .Property(p => p.Id)
                 .ValueGeneratedOnAdd();
@@ -67,6 +98,16 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
             modelBuilder.Entity<Work>()
                 .Property(w=>w.Id)
                 .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Blog>()
+                .Property(bl=>bl.Id)
+                .ValueGeneratedOnAdd();
+            modelBuilder.Entity<Event>()
+                .Property(ev => ev.Id)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.ApplyConfiguration(new CategoryMap());
+            modelBuilder.ApplyConfiguration(new EventMap());
+
         }
 
 
