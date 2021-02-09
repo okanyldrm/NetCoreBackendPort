@@ -78,6 +78,11 @@ namespace BlogApp.Business.Concrete
             return _eventDal.GetWeekEvent(currentdDate);
         }
 
+        public GetMonthEventDTO GetMonthEvent()
+        {
+           return _eventDal.GetMonthEvent();
+        }
+
 
         public List<Event> GetList()
         {

@@ -81,5 +81,16 @@ namespace BlogApp.API.Controllers
             return Json(model);
         }
 
+
+
+
+        [HttpGet("GetMonthEvent")]
+        public IActionResult GetMonthEvent()
+        {
+            var model = _eventService.GetMonthEvent();
+            return Json(model);
+        }
+
+
     }
 }

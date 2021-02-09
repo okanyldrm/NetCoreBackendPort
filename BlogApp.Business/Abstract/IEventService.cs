@@ -20,6 +20,8 @@ namespace BlogApp.Business.Abstract
         List<EventCategoryDTO> GetEventCategory();
         List<EventCategoryDTO> GetWeekEvent();
 
+        GetMonthEventDTO GetMonthEvent();
+
 
     }
 }

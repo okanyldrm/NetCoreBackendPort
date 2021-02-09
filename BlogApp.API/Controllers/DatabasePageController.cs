@@ -5,9 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlogApp.Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BlogApp.API.Controllers
 {
+    
     [ApiController]
     [Route("api/[controller]")]
     public class DatabasePageController : Controller

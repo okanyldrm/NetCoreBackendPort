@@ -17,6 +17,7 @@ namespace BlogApp.DataAccess.Abstract
         List<EventCategoryDTO> GetEventCategory();
 
         List<EventCategoryDTO> GetWeekEvent(DateTime currentdDate);
+       GetMonthEventDTO GetMonthEvent();
 
 
     }
