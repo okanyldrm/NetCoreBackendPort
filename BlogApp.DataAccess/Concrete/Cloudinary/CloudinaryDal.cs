@@ -10,13 +10,9 @@ namespace BlogApp.DataAccess.Concrete.Cloudinary
     public class CloudinaryDal : ICloudinaryDal
     {
 
-        public CloudinaryDotNet.Cloudinary Cloudinary;
-
-        public const string CLOUD_NAME = "dv6dybgfw";
-
-        public const string API_KEY = "955585791428777";
-
-        public const string API_SECRET = "h13QtLPG9ta9O9GIj52mRB-inIM";
+        
+        
+        
 
         public CloudinaryDal()
         {
