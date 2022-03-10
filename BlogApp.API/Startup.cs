@@ -48,7 +48,11 @@ namespace BlogApp.API
 
             //Entity Framework
             services.AddDbContext<ApplicationDbContext>(option =>
-                option.UseNpgsql(Configuration.GetConnectionString("ConStr")));
+                option.UseSqlServer(Configuration.GetConnectionString("ConStr")));
+
+            //Entity Framework
+            services.AddDbContext<BlogContext>(option =>
+                option.UseSqlServer(Configuration.GetConnectionString("ConStr")));
 
 
             //For Identity
@@ -73,9 +77,9 @@ namespace BlogApp.API
                     {
                         ValidateIssuer = true,
                         ValidateAudience = false,
-                        ValidAudience = Configuration["JWT:ValidAudience"],
-                        ValidIssuer = Configuration["JWT:ValidIssuer"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+                        ValidAudience ="myidentityapp",
+                        ValidIssuer = "myidentityapp",
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("mysecretkeymysecretkeymysecretkey"))
                     };
                 });
 
