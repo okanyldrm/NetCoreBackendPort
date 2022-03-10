@@ -9,12 +9,27 @@ namespace BlogApp.DataAccess.Authentication
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public ApplicationDbContext()
+        {
+
+        }
 
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
+        }
+        public ApplicationDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        ////----OLD----
+        ////Connection-String (N-Tier Connection non-parameter ctor please :D ^ )
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
 
         }
+
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

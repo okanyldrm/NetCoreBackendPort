@@ -51,8 +51,8 @@ namespace BlogApp.API
                 option.UseSqlServer(Configuration.GetConnectionString("ConStr")));
 
             //Entity Framework
-            services.AddDbContext<BlogContext>(option =>
-                option.UseSqlServer(Configuration.GetConnectionString("ConStr")));
+            //services.AddDbContext<BlogContext>(option =>
+            //    option.UseSqlServer(Configuration.GetConnectionString("ConStr")));
 
 
             //For Identity

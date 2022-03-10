@@ -15,35 +15,14 @@ namespace BlogApp.DataAccess.Concrete.EntitiyFramework
 
         private readonly IConfiguration _configuration;
 
-        ////Need Empty Consructor 
-        public BlogContext()
-        {
-
-        }
 
 
-        public BlogContext(DbContextOptions<BlogContext> options) : base(options)
-        {
-        }
 
-        public BlogContext(DbContextOptions options) : base(options)
-        {
-        }
-
-        ////----OLD----
-        ////Connection-String (N-Tier Connection non-parameter ctor please :D ^ )
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-
-
+            optionsBuilder.UseSqlServer
+                (@"Server=tcp:okosunucu.database.windows.net,1433;Initial Catalog=oko;Persist Security Info=False;User ID=okosunucu;Password=C9klm4he3;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
-
-
-
-
-
-
 
         public DbSet<HomePage> HomePages { get; set; }
         public DbSet<Feature> Features { get; set; }
